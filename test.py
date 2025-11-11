@@ -61,8 +61,8 @@ else:
 env, agents = make_env.make_env_agents(
     agentnames = agentnames, 
     project_part = project_part, 
-    first_file = 'data/datafile1_2024.csv', 
-    second_file='data/datafile2_2024.csv'
+    first_file = 'data/datafile1_2025.csv', 
+    second_file='data/datafile2_2025.csv'
     )
 print('Successfully initialized environment and agents.')
 
