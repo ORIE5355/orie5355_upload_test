@@ -42,12 +42,17 @@ if part_name == 1:
             assert False, "Your submitted static prices file has wrong columns!"
         print('Your static prices file is submitted and the columns are correct')
 
-### delete all files except the agent file and the static prices file
-files.remove(f"{team_name}.py")
-files.remove('__init__.py')
-files = [f for f in files if f != 'static_prices_submission.csv']
-for f in files:
-    # only remove non-folder files
+### Keep only allowed files:
+allowed_files = {
+    f"{team_name}.py", 
+    "__init__.py",
+    "static_prices_submission.csv",
+    "dummy_fixed_prices.py",
+    "dummy_fixed_prices_adaptive.py"
+}
+files_to_delete = [f for f in files if f not in allowed_files]
+
+for f in files_to_delete:
     if os.path.isfile(os.path.join('./agents', f)):
         os.remove(os.path.join('./agents', f))
 
